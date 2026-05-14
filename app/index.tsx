@@ -1,18 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Redirect } from "expo-router";
 
-export default function SplashScreen() {
-  return (
-    <View>
-      <Text>Wellcome to Meal Planne</Text>
-    </View>
-  );
+export default function Index() {
+  return <Redirect href="/login" />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
