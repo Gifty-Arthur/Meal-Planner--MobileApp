@@ -1,9 +1,10 @@
 import { colors } from "@/global";
+import { FontAwesome } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
+import { router } from "expo-router";
 
 const login = () => {
   return (
@@ -18,10 +19,11 @@ const login = () => {
 
       </LinearGradient>
 
-      <TouchableOpacity style={styles.emailBtn}>
-        <Text style=
-          {styles.emailbtnText}> Sign up with email</Text>
-
+      <TouchableOpacity 
+        style={styles.emailBtn}
+        onPress={() => router.push("/components/Onboarding")}
+      >
+        <Text style={styles.emailbtnText}> Sign up with email</Text>
       </TouchableOpacity>
 
       {/* Divider with lines */}
@@ -29,6 +31,28 @@ const login = () => {
         <View style={styles.line} />
         <Text style={styles.dividerText}>or use social sign up</Text>
         <View style={styles.line} />
+      </View>
+
+      <TouchableOpacity style={styles.socialBtn}>
+        <FontAwesome name="google" size={16} color="black" />
+        <Text style={styles.socialBtnText}>Continue with Google</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.socialBtn}>
+        <FontAwesome name="facebook" size={16} color="#1877F2" />
+        <Text style={styles.socialBtnText}>Continue with Facebook</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.socialBtn}>
+        <FontAwesome name="apple" size={16} color="black" />
+        <Text style={styles.socialBtnText}>Continue with Apple</Text>
+      </TouchableOpacity>
+
+      <View style={styles.footerContainer}>
+        <Text style={styles.footerText}>Already have an account? </Text>
+        <TouchableOpacity>
+          <Text style={styles.footerLoginText}>Log In</Text>
+        </TouchableOpacity>
       </View>
 
 
@@ -95,5 +119,35 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: colors.textSecondary,
     marginTop: 10,
+  },
+  socialBtn: {
+    backgroundColor: colors.text,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    borderRadius: 8,
+    marginTop: 20,
+    padding: 15,
+    marginHorizontal: 20,
+    alignItems: 'center',
+  },
+  socialBtnText: {
+    marginLeft: 10,
+    fontSize: 10,
+    fontWeight: "bold",
+  },
+  footerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 30,
+  },
+  footerText: {
+    color: colors.text,
+    fontSize: 14,
+  },
+  footerLoginText: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
   }
 });
